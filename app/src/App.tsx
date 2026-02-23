@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Waves, 
   Clock, 
   Target, 
-  ShieldCheck, 
   MapPin, 
   Video, 
-  BookOpen, 
   CheckCircle2, 
   Linkedin,
   Mail,
@@ -16,11 +14,11 @@ import {
 function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
-      {/* Header / Hero Section - Punto 1 */}
+      {/* Header / Hero Section */}
       <header className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/api/placeholder/1920/1080" 
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2073" 
             alt="Fondo terapéutico" 
             className="w-full h-full object-cover brightness-50"
           />
@@ -41,7 +39,7 @@ function App() {
         </div>
       </header>
 
-      {/* Sobre Mí - Punto 2 */}
+      {/* Sobre Mí */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden shadow-2xl">
@@ -59,7 +57,7 @@ function App() {
         </div>
       </section>
 
-      {/* Terapia Sistémica - Punto 3 (Sin comparativas negativas) */}
+      {/* Terapia Sistémica */}
       <section className="py-20 px-4 bg-slate-100">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-light mb-12">¿Por qué Terapia Sistémica Breve?</h2>
@@ -83,7 +81,7 @@ function App() {
         </div>
       </section>
 
-      {/* Respaldo por la ciencia - Punto 4 (Citas reales) */}
+      {/* Respaldo por la ciencia */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-light mb-12 text-center">Respaldo Científico</h2>
@@ -108,7 +106,7 @@ function App() {
         </div>
       </section>
 
-      {/* Modalidades de Atención - Punto 5 */}
+      {/* Modalidades de Atención */}
       <section className="py-20 px-4 bg-slate-900 text-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
           <div className="space-y-6">
@@ -117,10 +115,10 @@ function App() {
               <h2 className="text-3xl font-light">Atención Presencial</h2>
             </div>
             <p className="text-slate-300 text-lg">
-              Te invito a un espacio terapéutico diseñado para la calma. Mi consulta está ubicada en un punto céntrico de Valparaíso, ofreciendo un entorno seguro, cómodo y privado donde el entorno natural contribuye a la introspección.
+              Te invito a un espacio terapéutico diseñado para la calma. Mi consulta está ubicada en un punto céntrico de Valparaíso, ofreciendo un entorno seguro, cómodo y privado donde la tranquilidad contribuye a la introspección.
             </p>
             <div className="rounded-xl overflow-hidden shadow-xl border border-white/10">
-              <img src="/api/placeholder/600/300" alt="Consulta Valparaíso" className="w-full h-48 object-cover" />
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069" alt="Consulta Valparaíso" className="w-full h-48 object-cover" />
             </div>
           </div>
           
@@ -142,7 +140,7 @@ function App() {
         </div>
       </section>
 
-      {/* Valores y Contacto - Punto 6 */}
+      {/* Valores y Contacto */}
       <section id="contacto" className="py-20 px-4 bg-white">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl font-light mb-8">Información de Sesión</h2>
@@ -155,14 +153,13 @@ function App() {
               <li className="flex items-center gap-2"><CheckCircle2 size={18} className="text-sky-600" /> Atención personalizada para adultos</li>
               <li className="flex items-center gap-2"><CheckCircle2 size={18} className="text-sky-600" /> Disponibilidad presencial y remota</li>
             </ul>
-            <a href="mailto:tuemail@ejemplo.com" className="w-full block bg-slate-900 text-white py-4 rounded-xl hover:bg-sky-700 transition-colors uppercase tracking-widest text-sm font-bold">
+            <a href="mailto:alonsomancillaps@gmail.com" className="w-full block bg-slate-900 text-white py-4 rounded-xl hover:bg-sky-700 transition-colors uppercase tracking-widest text-sm font-bold">
               Agendar vía Email
             </a>
           </div>
           
           <div className="flex justify-center gap-6">
-            <a href="#" className="text-slate-400 hover:text-sky-600 transition-colors"><Linkedin /></a>
-            <a href="#" className="text-slate-400 hover:text-sky-600 transition-colors"><Mail /></a>
+            <a href="mailto:alonsomancillaps@gmail.com" className="text-slate-400 hover:text-sky-600 transition-colors"><Mail /></a>
           </div>
         </div>
       </section>
