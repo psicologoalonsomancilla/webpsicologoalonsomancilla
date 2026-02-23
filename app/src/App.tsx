@@ -1,190 +1,111 @@
-import { useEffect, useState } from 'react';
 import { 
-  Waves, MapPin, Video, ArrowRight, CheckCircle, 
-  Instagram, Mail, Send, BookOpen, Brain, Sparkles, 
-  ChevronDown, ChevronUp, Lightbulb, Target
+  Waves, 
+  Clock, 
+  Target, 
+  MapPin, 
+  Video, 
+  CheckCircle2, 
+  Mail,
+  ExternalLink
 } from 'lucide-react';
 
-function App() {
-  const [scrolled, setScrolled] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const faqs = [
-    {
-      question: '¿Cuánto dura un proceso terapéutico?',
-      answer: 'La terapia sistémica breve se caracteriza por ser focalizada y orientada a objetivos concretos. Generalmente, los procesos oscilan entre 6 y 12 sesiones, aunque esto depende de la complejidad de cada situación.'
-    },
-    {
-      question: '¿Cuál es la diferencia entre terapia sistémica y otras terapias?',
-      answer: 'A diferencia del psicoanálisis, la terapia sistémica se enfoca en el presente y en los patrones de interacción que mantienen el problema. Es ideal si buscas cambios concretos en tu vida actual.'
-    },
-    {
-      question: '¿Funciona la terapia online igual que la presencial?',
-      answer: 'Investigaciones de 2024-2025 muestran que la terapia sistémica online tiene resultados equivalentes a la presencial. Ofrezco ambas modalidades.'
-    },
-    {
-      question: '¿Necesito tener un diagnóstico para consultar?',
-      answer: 'No. Trabajo desde un enfoque no patologizante: no te defino por etiquetas diagnósticas. Me interesa entender tu situación y lo que quieres cambiar.'
-    }
-  ];
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
-      {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
-      }`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <div className="flex items-center gap-2">
-              <Waves className={`h-6 w-6 ${scrolled ? 'text-[#2B5F7A]' : 'text-white'}`} />
-              <span className={`font-semibold text-lg ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-                Alonso Mancilla
-              </span>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              {['Inicio', 'Sobre mí', 'Enfoque', 'Evidencia', 'El Espacio', 'Contacto'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  className={`text-sm font-medium transition-colors hover:opacity-80 ${
-                    scrolled ? 'text-gray-700' : 'text-white/90'
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-            <button 
-              onClick={() => scrollToSection('contacto')}
-              className="bg-[#2B5F7A] hover:bg-[#1E4A5F] text-white text-sm px-4 py-2 rounded-lg transition-colors"
-            >
-              Agendar
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="inicio" className="relative min-h-screen flex items-center">
-        <div className="absolute inset-0">
-          <img
-            src="/1771861945878.jpg"
-            alt="Consulta con vista al mar"
-            className="w-full h-full object-cover"
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
+      {/* Portada */}
+      <header className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/1771861945878.jpg" 
+            alt="Fondo Consulta" 
+            className="w-full h-full object-cover brightness-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         </div>
-        
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <MapPin className="h-4 w-4 text-[#7EC8E3]" />
-              <span className="text-white/90 text-sm">Valparaíso, Chile</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Terapia con una vista que <span className="text-[#7EC8E3]">transforma</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
-              Psicoterapia sistémica breve basada en evidencia. Un espacio seguro frente al mar para tu proceso de crecimiento.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => scrollToSection('contacto')}
-                className="bg-[#2B5F7A] hover:bg-[#1E4A5F] text-white px-8 py-4 rounded-xl font-medium flex items-center justify-center transition-all shadow-lg"
-              >
-                Agendar consulta <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-              <button 
-                onClick={() => scrollToSection('enfoque')}
-                className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-xl font-medium transition-all"
-              >
-                Conoce mi enfoque
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sobre mí Section */}
-      <section id="sobre-mi" className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="/1771861945854.jpg"
-                  alt="Psicólogo Alonso Mancilla"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-[#2B5F7A] text-white p-6 rounded-2xl shadow-xl">
-                <p className="text-3xl font-bold">+5</p>
-                <p className="text-sm text-white/80">años de experiencia</p>
-              </div>
-            </div>
-            
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Sobre mí</h2>
-              <div className="space-y-4 text-slate-600 leading-relaxed text-lg">
-                <p>Soy psicólogo clínico con formación especializada en <strong>Terapia Sistémica Breve</strong>.</p>
-                <p>Mi trabajo se fundamenta en metodologías <strong>basadas en evidencia científica</strong>, combinando el enfoque sistémico con técnicas de imaginería terapéutica.</p>
-                <p>Cuento con diplomado en psicoterapia breve para pacientes que han sufrido abuso sexual, lo que permite una práctica clínica sensible y especializada.</p>
-              </div>
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <p className="font-semibold text-[#2B5F7A]">Formación</p>
-                  <p className="text-sm">Diplomado Sistémico Breve</p>
-                </div>
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <p className="font-semibold text-[#2B5F7A]">Atención</p>
-                  <p className="text-sm">Adultos y Parejas</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* El resto de las secciones (Enfoque, Evidencia, Contacto) se mantienen idénticas con el diseño de KIMI */}
-      <section id="contacto" className="py-24 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-bold mb-8">Comienza tu proceso</h2>
-          <div className="bg-white/5 p-10 rounded-3xl border border-white/10 mb-8">
-            <p className="text-xl mb-6 font-light italic">"Terapia basada en soluciones con respaldo científico"</p>
-            <div className="flex flex-col md:flex-row justify-center gap-8 mb-10">
-              <div className="flex items-center gap-2"><MapPin className="text-[#7EC8E3]" /> Presencial Valparaíso</div>
-              <div className="flex items-center gap-2"><Video className="text-[#7EC8E3]" /> Online todo Chile</div>
-            </div>
-            <a href="mailto:almancillaps@gmail.com" className="inline-flex items-center gap-3 bg-[#2B5F7A] px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-[#1E4A5F] transition-all">
-              <Mail /> Contactar vía Email
+        <div className="relative z-10 text-center px-4 max-w-4xl">
+          <h1 className="text-4xl md:text-6xl font-light text-white mb-6 uppercase tracking-tight">
+            Psicólogo Alonso Mancilla
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-200 italic font-light">
+            "Terapia con una vista que transforma"
+          </p>
+          <div className="mt-10">
+            <a href="#contacto" className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-3 rounded-full hover:bg-white hover:text-slate-900 transition-all">
+              Agenda tu Sesión
             </a>
           </div>
-          <p className="text-slate-500 text-sm">© 2025 Psicólogo Alonso Mancilla | Valparaíso, Chile</p>
+        </div>
+      </header>
+
+      {/* Sobre Mí */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="rounded-2xl overflow-hidden shadow-2xl aspect-[3/4]">
+             <img 
+              src="/1771861945854.jpg" 
+              alt="Psicólogo Alonso Mancilla" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="text-3xl font-light mb-6 text-slate-900">Sobre Mí</h2>
+            <p className="text-lg leading-relaxed mb-4 text-slate-600">
+              Psicólogo con Diplomado en Intervenciones Sistémicas Breves. Mi enfoque se centra en movilizar los recursos propios de cada persona para generar cambios significativos.
+            </p>
+            <p className="text-lg leading-relaxed text-slate-600">
+              Acompaño a adultos en contextos de alta complejidad, ofreciendo un espacio de comprensión profunda y estrategias prácticas para abordar desafíos emocionales y relacionales.
+            </p>
+          </div>
         </div>
       </section>
+
+      {/* Pilares */}
+      <section className="py-20 px-4 bg-slate-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-light mb-12">Enfoque Terapéutico</h2>
+          <div className="grid md:grid-cols-3 gap-8 text-left">
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <Target className="text-sky-600 mb-4" />
+              <h3 className="text-xl font-medium mb-2">Foco en Soluciones</h3>
+              <p className="text-slate-600 italic">Construimos el camino hacia la vida que deseas vivir.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <Waves className="text-sky-600 mb-4" />
+              <h3 className="text-xl font-medium mb-2">Visión Integral</h3>
+              <p className="text-slate-600 italic">Entendemos tus dificultades dentro de tu contexto único.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <Clock className="text-sky-600 mb-4" />
+              <h3 className="text-xl font-medium mb-2">Eficiencia</h3>
+              <p className="text-slate-600 italic">Intervenciones directas para generar alivio pronto.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contacto y Valores */}
+      <section id="contacto" className="py-20 px-4 bg-white text-center">
+        <div className="max-w-xl mx-auto">
+          <div className="bg-slate-50 p-10 rounded-3xl border border-slate-200 mb-10">
+            <h2 className="text-2xl mb-4 font-light">Información de Sesión</h2>
+            <p className="text-4xl font-light mb-6 text-slate-900">$40.000 <span className="text-lg text-slate-400">/ sesión</span></p>
+            <div className="flex flex-col gap-4 text-slate-600 mb-8">
+              <div className="flex items-center justify-center gap-2"><MapPin size={18} className="text-sky-600"/> Valparaíso</div>
+              <div className="flex items-center justify-center gap-2"><Video size={18} className="text-sky-600"/> Terapia Online</div>
+              <div className="flex items-center justify-center gap-2"><CheckCircle2 size={18} className="text-sky-600"/> Boleta Reembolsable</div>
+            </div>
+            <a href="mailto:alonsomancillaps@gmail.com" className="block w-full bg-slate-900 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+              <Mail size={18} /> Agendar vía Email
+            </a>
+          </div>
+          <a href="https://doi.org/10.1111/jmft.12000" target="_blank" className="text-xs text-slate-400 flex items-center justify-center gap-1 hover:underline">
+             Respaldo Científico: Gingerich & Peterson (2013) <ExternalLink size={12} />
+          </a>
+        </div>
+      </section>
+
+      <footer className="py-10 text-center text-slate-400 text-xs">
+        © {new Date().getFullYear()} Alonso Mancilla - Psicólogo Clínico
+      </footer>
     </div>
   );
 }
-
-export default App;
