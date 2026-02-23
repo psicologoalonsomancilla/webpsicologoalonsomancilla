@@ -89,8 +89,8 @@ export default function App() {
               <div className="flex items-center justify-center gap-2"><Video size={18} className="text-sky-600"/> Terapia Online</div>
               <div className="flex items-center justify-center gap-2"><CheckCircle2 size={18} className="text-sky-600"/> Boleta Reembolsable</div>
             </div>
-            <a href="mailto:alonsomancillaps@gmail.com" className="block w-full bg-slate-900 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-sky-800 transition-colors">
-              Agendar vía Email
+            <a href="mailto:alonsomancillaps@gmail.com" className="block w-full bg-slate-900 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+              <Mail size={18} /> Agendar vía Email
             </a>
           </div>
           <a href="https://doi.org/10.1111/jmft.12000" target="_blank" className="text-xs text-slate-400 flex items-center justify-center gap-1 hover:underline">
