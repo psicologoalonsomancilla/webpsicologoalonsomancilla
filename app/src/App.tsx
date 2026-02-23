@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   Waves, 
   Clock, 
@@ -6,7 +5,6 @@ import {
   MapPin, 
   Video, 
   CheckCircle2, 
-  Linkedin,
   Mail,
   ExternalLink
 } from 'lucide-react';
@@ -42,8 +40,9 @@ function App() {
       {/* Sobre Mí */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-2xl overflow-hidden shadow-2xl">
-            <img src="/perfil.jpg" alt="Alonso Mancilla" className="w-full h-auto" />
+          <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-200 aspect-[3/4] flex items-center justify-center">
+             <img src="/perfil.jpg" alt="Alonso Mancilla" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+             <span className="text-slate-400">Foto de Perfil</span>
           </div>
           <div>
             <h2 className="text-3xl font-light mb-6 text-slate-900">Sobre Mí</h2>
@@ -91,7 +90,7 @@ function App() {
                 "La Terapia Breve Centrada en Soluciones ha demostrado una eficacia del 60-80% en diversos entornos clínicos, siendo superior o igual a otros enfoques tradicionales pero en menor tiempo."
               </p>
               <a href="https://doi.org/10.1111/jmft.12000" target="_blank" className="text-sm text-sky-600 flex items-center gap-1 hover:underline">
-                Gingerich & Peterson (2013) - Journal of Marital and Family Therapy <ExternalLink size={14} />
+                Gingerich & Peterson (2013) <ExternalLink size={14} />
               </a>
             </div>
             <div className="border-l-4 border-sky-500 pl-6 py-2">
@@ -99,7 +98,7 @@ function App() {
                 "Los metaanálisis confirman que el enfoque sistémico es altamente efectivo en el tratamiento de trastornos de ansiedad, depresión y conflictos relacionales en adultos."
               </p>
               <a href="https://www.sciencedirect.com/science/article/pii/S019339731930030X" target="_blank" className="text-sm text-sky-600 flex items-center gap-1 hover:underline">
-                Carr (2019) - Evidence-Based Practice in Couple and Family Therapy <ExternalLink size={14} />
+                Carr (2019) <ExternalLink size={14} />
               </a>
             </div>
           </div>
@@ -115,11 +114,8 @@ function App() {
               <h2 className="text-3xl font-light">Atención Presencial</h2>
             </div>
             <p className="text-slate-300 text-lg">
-              Te invito a un espacio terapéutico diseñado para la calma. Mi consulta está ubicada en un punto céntrico de Valparaíso, ofreciendo un entorno seguro, cómodo y privado donde la tranquilidad contribuye a la introspección.
+              Consulta céntrica en Valparaíso. Un entorno seguro, cómodo y privado diseñado para favorecer la calma y la introspección.
             </p>
-            <div className="rounded-xl overflow-hidden shadow-xl border border-white/10">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069" alt="Consulta Valparaíso" className="w-full h-48 object-cover" />
-            </div>
           </div>
           
           <div className="space-y-6">
@@ -128,14 +124,8 @@ function App() {
               <h2 className="text-3xl font-light">Terapia Online</h2>
             </div>
             <p className="text-slate-300 text-lg">
-              La distancia no debe ser un obstáculo para tu bienestar. La modalidad online ofrece la misma calidez y efectividad técnica, con la comodidad de conectarte desde tu propio espacio seguro, eliminando traslados y optimizando tu tiempo.
+              Calidez y efectividad técnica desde tu propio espacio seguro. Una modalidad flexible que elimina traslados y se adapta a tu ritmo de vida.
             </p>
-            <div className="bg-white/5 p-8 rounded-xl border border-white/10 flex items-center justify-center min-h-[192px]">
-              <div className="text-center">
-                <CheckCircle2 className="mx-auto mb-4 text-sky-400" size={48} />
-                <p className="text-xl font-light">Calidad terapéutica sin fronteras</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -150,16 +140,18 @@ function App() {
             <hr className="my-6 border-slate-200" />
             <ul className="text-left space-y-4 mb-8 text-slate-600">
               <li className="flex items-center gap-2"><CheckCircle2 size={18} className="text-sky-600" /> Boleta reembolsable en Isapres/Seguros</li>
-              <li className="flex items-center gap-2"><CheckCircle2 size={18} className="text-sky-600" /> Atención personalizada para adultos</li>
-              <li className="flex items-center gap-2"><CheckCircle2 size={18} className="text-sky-600" /> Disponibilidad presencial y remota</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={18} className="text-sky-600" /> Atención para adultos</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={18} className="text-sky-600" /> Modalidad presencial y remota</li>
             </ul>
             <a href="mailto:alonsomancillaps@gmail.com" className="w-full block bg-slate-900 text-white py-4 rounded-xl hover:bg-sky-700 transition-colors uppercase tracking-widest text-sm font-bold">
               Agendar vía Email
             </a>
           </div>
           
-          <div className="flex justify-center gap-6">
-            <a href="mailto:alonsomancillaps@gmail.com" className="text-slate-400 hover:text-sky-600 transition-colors"><Mail /></a>
+          <div className="flex justify-center">
+            <a href="mailto:alonsomancillaps@gmail.com" className="text-slate-400 hover:text-sky-600 transition-colors flex items-center gap-2 italic">
+              <Mail /> alonsomancillaps@gmail.com
+            </a>
           </div>
         </div>
       </section>
